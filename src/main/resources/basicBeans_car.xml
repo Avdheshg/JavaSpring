@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="specification" class="fundamentals.practice.basic.beans.Specification">
+        <constructor-arg name="color" value="Black"/>
+        <constructor-arg name="model" value="X-Line"/>
+        <constructor-arg name="price" value="11.18"/>
+    </bean>
+
+    <bean id="owner" class="fundamentals.practice.basic.beans.Owner">
+        <constructor-arg name="address" value="Mathura"/>
+        <constructor-arg name="age" value="26"/>
+        <constructor-arg name="name" value="Avdhesh"/>
+    </bean>
+
+    <bean id="car" class="fundamentals.practice.basic.beans.Car">
+        <constructor-arg name="owner" ref="owner"/>
+        <constructor-arg name="specification" ref="specification"/>
+    </bean>
+
+</beans>
