@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mongoDB" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.MongoDBDataProvider">
+<!--        <constructor-arg name="user" value="Lenovo"/>-->
+        <property name="user" value="Lenovo"/>
+    </bean>
+
+    <bean id="sql" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.MongoDBDataProvider">
+<!--        <constructor-arg name="user" value="Dell"/>-->
+        <property name="user" value="Dell"/>
+    </bean>
+
+    <bean id="webService" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.MongoDBDataProvider">
+<!--        <constructor-arg name="user" value="HP"/>-->
+        <property name="user" value="HP"/>
+    </bean>
+
+    <bean id="userManager_mongoDB" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.UserManager">
+        <constructor-arg name="userDataProvider" ref="mongoDB"/>
+    </bean>
+
+    <bean id="userManager_sql" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.UserManager">
+        <constructor-arg name="userDataProvider" ref="sql"/>
+    </bean>
+
+    <bean id="userManager_webService" class="fundamentals.practice.basic.beans.loose.coupling.injection.constructor.UserManager">
+        <constructor-arg name="userDataProvider" ref="webService"/>
+    </bean>
+
+</beans>
